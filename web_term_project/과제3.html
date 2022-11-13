@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>반응형 웹</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=width,inital-scale=1">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+            }
+            a {
+                color: black;
+                text-decoration: none;
+            }
+            .navbar a,
+
+            #toolbar a {
+                color: white;
+                white-space: nowrap;
+            }
+
+            .navbar {
+                background-color: black;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                width: 100%;
+            }
+
+            .top-nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+            }
+
+            .bottom-nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .top-nav a {
+                color: white;
+                margin-right: 5%;
+                margin-top : 1%;
+            }
+
+            .logo {
+                font-size: large;
+                margin: 0 auto;
+                padding: 5px;
+                margin-bottom: 3%;
+                margin-left: 15%;
+            }
+
+            .menu {
+                margin: 0 auto;
+                display: flex;
+            }
+
+            .menu li {
+                padding: 15px;
+                margin-left: 30px;
+            }
+
+            .mainslide {
+                background-image: url("mainslide_01.jpg");
+                background-size:100% 100%; 
+                width: 100%;
+                height:0 auto;
+                padding: 35% 0;
+                margin: 0 auto;
+            }
+
+            .top3 {
+                background-color: beige;
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                height: auto;
+            }
+
+            .bottom {
+                padding-top: 20px;
+                display: flex;
+                justify-content: center;
+            }
+
+            #toolbar{
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                list-style-type: none;
+                font-size: 15px;
+                right: 5px;
+                top: 250px;
+                padding: 0;
+            }
+
+            #toolbar li {
+                background-color: rgba(35, 35, 50, 0.9);
+                display: inline-block;
+                padding: 15px 20px;
+                margin-bottom: 2px;
+                border-radius: 5px;
+            }
+
+            h1 {
+                padding: 50px;
+                text-align: center;
+                font-size: 50px;
+                font-weight: 200;
+                color: black;
+            }
+
+            .picture_box {
+                text-align: center;
+                overflow: hidden;
+                width: 32%;
+                margin: 0 10px 40px 10px;
+            }
+
+            .picture_box img{
+                border-radius: 5px;
+                width: 100%;
+            }
+
+            .consult {
+                display: flex;
+                height: 200px;
+                width: 60%;
+                align-items: center;
+                justify-content: center;
+                background-color: skyblue;
+            }
+
+            .consult_box {
+                float: left;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100px;
+                width: 300px;
+                margin-right: 20px;
+                border: 2px solid white;
+                overflow: hidden;
+            }
+
+            .consult_box h2 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .notice h3 {
+                padding-left: 20px;
+                font-size: 30px;
+            }
+
+            .notice_list li span {
+                color: black;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: black;
+            }
+
+            footer {
+                margin: 10;
+                display: flex;
+                padding: 10px;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            .info {
+                width:80%;
+                padding: 0;
+            }
+
+            .image_box img {
+                margin: 10px;
+            }
+
+            .button{
+                display:flex;
+                justify-content: space-around;
+                background-color: black;
+                height: 60px;
+                align-items: center;
+                padding: 0;
+            }
+
+            .button li{
+                font-size: 20px;
+                color: black;
+            }
+
+
+            /* 모바일 */
+            @media (max-width:767px) {
+                #toolbar{
+                    display:none;
+                }
+                .button{
+                    display: none;
+                }
+
+            }
+            /* 태블릿 PC */
+            @media (min-width: 768px) and (max-width: 959px) {
+                #toolbar{
+                    display:none;
+                }
+                .button{
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="top-nav">
+                <a href = "login.html">로그인</a>
+                <a href = "signup.html">회원가입</a>
+            </div>
+
+            <div class="bottom-nav">
+                <div class="logo"><a href="">TOURIST in TOUR</a>
+            </div>
+            <div>
+                <ul class="menu">
+                    <li><a href="">여행정보</a></li>
+                    <li><a href="">고객센터</a></li>
+                    <li><a href="">상품투어</a></li>
+                    <li><a href="">티켓/가이드</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="toolbar">
+            <li><a href="">전화문의<br>010-1234-5678</a></li>
+            <li><a href="">카카오톡<br>1:1상담</a></li>
+            <li><a href="">오시는 길</a></li>
+        </div>
+
+        <div class="mainslide"></div>
+        <div class="title">
+            <h1>다시 찾는 인기 여행지 <b style="font-weight:bolder;">TOP 3</b></h1>
+        </div>
+
+        <div class="top3">
+            <div class="picture_box">
+                <img src="img_topplace01.jpg" alt="확대보기" style = "cursor: pointer;",alt="" onclick="doImgPop('img_topplace01.jpg')">
+                <h3>성패트릭 성당</h3>
+                <p>바쁜 뉴욕 안에서 정교하면서도<br>웅장한 가운데 침묵하게되는 기도의 시간!</p>
+                <a href="">
+                    <div>
+                        <h3>VIEW</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="picture_box">
+                <img src="img_topplace02.jpg">
+                <h3>원주 뮤지엄 '산'</h3>
+                <p>전시된 유산들을 담아낸 건물에<br>신비로운 들과 물의 테마가 담겨있다.</p>
+                <a href="">
+                    <div>
+                        <h3>VIEW</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="picture_box">
+                <img src="img_topplace03.jpg">
+                <h3>일본 만국박람회 기념공원</h3>
+                <p>오사카 센리 반파쿠에는 드넓은<br>대지에 정원과 들, 물과 함께 하는 문화가 있다.</p>
+                <a href="">
+                    <div>
+                        <h3>VIEW</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="consult">
+                <a>
+                <div class="consult_box">
+                    <img src="ico_kakao.png" width="50" height=50>
+                    <h2>카카오톡 1:1 상담</h2>
+                </div>
+                </a>
+                <a>
+                    <div class="consult_box">
+                        <img src="ico_phone.png" width="50" height="50">
+                        <h2>전화 상담 신청</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="notice">
+                <h3>NOTICE</h3>
+                <ul class="notice_list">
+                    <li><a href=""><span>이번 휴가 제주갈까? 미션 투어</span></a></li>
+                    <li><a href=""><span>박물관 미션 투어 응모 당첨자 발표</span> </a></li>
+                    <li><a href=""><span>추석 연휴 티켓/투어 배송 및 직접 수령</span></a></li>
+                    <li><a href=""><span>하롱베이 서비스 OPEN! (여행 정보, 가이드</span></a></li>
+                    <li><a href=""><span>투어리스트인투어 서비스 점검 안내 </span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <ul class="info">
+                <h3><a href="">이용약관</a> | <a href="">개인정보취급방침</a></h3>
+                <li>투어리스트인투어</li>
+                <li>서울특별시 종로구 혜화동 9길 청문빌딩 5층/대표전화 02-1234-5678/E-mail : titour@touristInTour.com</li>
+                <li>Copyright(c) TouristInTour all right reserved</li>
+            </ul>
+            <div class="image_box">
+                <a href=""><img src="ico_blog_r.png" width=50></a>
+                <a href=""><img src="ico_face.png" width=50 style="padding-bottom:25px"></a>
+                <a href=""><img src="ico_instargram_r.png" width=50></a>
+            </div>
+        </footer>
+        <ul class="button">
+            <li>전화문의</li>
+            <li>카카오톡 상담</li>
+            <li>오시는 길</li>
+        </ul>
+    </body>
+</html>
