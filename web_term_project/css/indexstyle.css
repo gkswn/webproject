@@ -21,6 +21,7 @@ a {
     flex-direction: column;
     position: fixed;
     width: 100%;
+
 }
 
 .top-nav {
@@ -60,7 +61,7 @@ a {
 }
 
 .mainslide {
-    background-image: url("../images/mainslide_01.jpg");
+
     background-size:100% 100%; 
     width: 100%;
     height:0 auto;

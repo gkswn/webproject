@@ -10,7 +10,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
         <link rel="stylesheet" href="./css/indexstyle.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+        <script src = "./js/indexjs.js"></script>
     </head>
     <body>
         <nav class="navbar">
@@ -24,10 +27,9 @@
             </div>
             <div>
                 <ul class="menu">
-                    <li><a href="">여행정보</a></li>
-                    <li><a href="">고객센터</a></li>
-                    <li><a href="">상품투어</a></li>
-                    <li><a href="">티켓/가이드</a></li>
+                    <li><a href="./board/program.html">상품투어</a></li>
+                    <li><a href="./board/notice_list.html">고객센터</a></li>
+                    <li><a href="./member/mypage.html">마이페이지</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,7 +39,28 @@
             <li><a href="">오시는 길</a></li>
         </div>
 
-        <div class="mainslide"></div>
+        <div style = "
+                     position: relative;
+                     background-size: cover;
+                     width: 100%;
+                     height:350px;
+                     padding: 6.8% 0;
+                     margin: 0 auto;
+                     overflow:hidden;
+                     " >
+            <div id = "slider-div" style="position: absolute; height:350px; background-size: cover; margin: 0 auto;">
+                <div>
+                    <img src = "./images/mainslide01.jpg">
+                </div>
+                <div>
+                    <img src = "./images/mainslide02.jpg">
+                </div>
+                <div>
+                    <img src = "./images/mainslide03.jpg">
+                </div>
+            </div>
+            
+        </div>
         <div class="title">
             <h1>다시 찾는 인기 여행지 <b style="font-weight:bolder;">TOP 3</b></h1>
         </div>
