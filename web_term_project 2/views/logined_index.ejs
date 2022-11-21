@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>반응형 웹</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=width,inital-scale=1">
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+        <link rel="stylesheet" href="./css/indexstyle.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+        <script src = "./js/indexjs.js"></script>
+        <script>
+            var counter = 1;
+                setInterval(function(){
+                document.getElementById('radio'+counter).checked = true;
+                counter++;
+                if(counter > 4)
+                    counter = 1;
+            }, 3000)            
+        </script>
+        <style>.slider{
+            width: 100%;
+            height: 600px;
+            border-radius : 10px;
+            overflow : hidden;
+        }
+        
+        .slides{
+            width : 500%;
+            height : 600px;
+            display : flex;
+            
+        }
+        
+        .slides input{
+            display : none;
+            
+        }
+        
+        .slide{
+            width : 20%;
+            transition: 2s;
+            
+        }
+        
+        .slide img{
+            width : 100%;
+            height : 600px;
+            margin : 0 auto;
+        }
+        
+        /*adsadasdasdsadsadas  */
+        .navigation-manual{
+            position : absolute;
+            width : 100%;
+            margin-top: -40px;
+            display : flex;
+            justify-content : center;
+        
+           
+        }
+        
+        .manual-btn{
+            border: 2px solid white;
+            padding : 5px;
+            border-radius : 5px;
+            cursor : pointer;
+            transition : 1s;
+        }
+        
+        .manual-btn:not(:last-child){
+            margin-right: 40px;
+        }
+        
+        .manual-btn:hover{
+            background: black;
+        }
+        
+        #radio1:checked ~ .first{
+            margin-left: 0;
+        }
+        #radio2:checked ~ .first{
+            margin-left: -20%;
+        }
+        #radio3:checked ~ .first{
+            margin-left: -40%;
+        }
+        
+        
+        .navigation-auto{
+            position : absolute;
+            display : flex;
+            width : 100%;
+            justify-content : center;
+            margin-top : 560px;
+        }
+        
+        .navigation-auto div{
+            border : 2px solid white;
+            padding : 5px;
+            border-radius : 5px;
+            transition : 1s;
+        }
+        
+        
+        .navigation-auto div:not(:last-child){
+            margin-right: 40px;
+        }
+        
+        #radio1:checked ~ .navigation-auto .auto-btn1{
+            background: #40d3dc;
+        }
+        #radio2:checked ~ .navigation-auto .auto-btn2{
+            background: #40d3dc;
+        }
+        #radio3:checked ~ .navigation-auto .auto-btn3{
+            background: #40d3dc;
+        }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="top-nav">
+                <a href = "/logout" >로그아웃</a>
+                <a href = "/signup">회원가입</a>
+            </div>
+
+            <div class="bottom-nav">
+                <div class="logo"><a href="/logined_index">TOURIST in TOUR</a>
+            </div>
+            <div>
+                <ul class="menu">
+                    <li><a href="/logined_program">상품투어</a></li>
+                    <li><a href="/logined_notice_list">고객센터</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="toolbar">
+            <li><a href="">전화문의<br>010-1234-5678</a></li>
+            <li><a href="">카카오톡<br>1:1상담</a></li>
+            <li><a href="">오시는 길</a></li>
+        </div>
+
+        <div class="main_rolling_pc">
+            <div class="slide_box">
+                <div class="slider">
+                    <div class="slides">
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        
+                        <div class="slide first">
+                            <img src="./images/mainslide01.jpg" alt="">
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="./images/mainslide02.jpg" alt="">
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="./images/mainslide03.jpg" alt="">
+                        </div>
+          
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                        </div>
+                    </div>
+          
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                    </div>
+                </div>            
+        </div>
+
+            
+        </div>
+        <div class="title">
+            <h1>다시 찾는 인기 여행지 <b style="font-weight:bolder;">TOP 3</b></h1>
+        </div>
+
+        <div class="top3">
+            <div class="picture_box">
+                <a href="./images/img_topplace01.jpg" data-title="성패트릭 성당" data-lightbox="pic1"><img src="./images/img_topplace01.jpg" alt="성패트릭 성당"></a>
+                <a style="display:none;" href="./images/img_topplace02.jpg" data-title="원주 뮤지엄 '산'" data-lightbox="pic1"><img src="./images/img_topplace02.jpg" alt=""></a>
+                <a style="display:none;" href="./images/img_topplace03.jpg" data-title="일본 만국박람회 기념공원" data-lightbox="pic1"><img src="./images/img_topplace03.jpg" alt=""></a>
+                <h3>성패트릭 성당</h3>
+                <p>바쁜 뉴욕 안에서 정교하면서도 웅장한 기운에 침묵하게 되는 기도의 시간!</p>
+        </div>
+            
+            <div class="picture_box">
+                <a href="./images/img_topplace02.jpg" data-title="원주 뮤지엄 '산'" data-lightbox="pic2"><img src="./images/img_topplace02.jpg" alt="원주 뮤지엄 '산'"></a>
+                <a style="display:none;" href="./images/img_topplace03.jpg" data-title="일본 만국박람회 기념공원" data-lightbox="pic2"><img src="./images/img_topplace03.jpg" alt=""></a>
+                <a style="display:none;" href="./images/img_topplace01.jpg" data-title="성패트릭 성당" data-lightbox="pic2"><img src="./images/img_topplace01.jpg" alt=""></a>
+                <h3>원주 뮤지엄 '산'</h3>
+                <p>전시된 유산들을 담아낸 건물에<br>신비로운 들과 물의 테마가 담겨있다.</p>
+                
+            </div>
+            <div class="picture_box">
+                <a href="./images/img_topplace03.jpg" data-title="일본 만국박람회 기념공원" data-lightbox="pic3"><img src="./images/img_topplace03.jpg" alt="일본 만국박람회 기념공원"></a>
+                <a style="display:none;" href="./images/img_topplace01.jpg" data-title="성패트릭 성당" data-lightbox="pic3"><img src="./images/img_topplace01.jpg" alt=""></a>
+                <a style="display:none;" href="./images/img_topplace02.jpg" data-title="원주 뮤지엄 '산'" data-lightbox="pic3"><img src="./images/img_topplace02.jpg" alt=""></a>
+                <h3>일본 만국박람회 기념공원</h3>
+                <p>오사카 센리 반파쿠에는 드넓은<br>대지에 정원과 들, 물과 함께 하는 문화가 있다.</p>
+                </a>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="consult">
+                <a>
+                <div class="consult_box">
+                    <img src="./images/ico_kakao.png" width="50" height=50>
+                    <h2>카카오톡 1:1 상담</h2>
+                </div>
+                </a>
+                <a>
+                    <div class="consult_box">
+                        <img src="./images/ico_phone.png" width="50" height="50">
+                        <h2>전화 상담 신청</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="notice">
+                <h3>NOTICE</h3>
+                <ul class="notice_list">
+                    <li><a href=""><span>이번 휴가 제주갈까? 미션 투어</span></a></li>
+                    <li><a href=""><span>박물관 미션 투어 응모 당첨자 발표</span> </a></li>
+                    <li><a href=""><span>추석 연휴 티켓/투어 배송 및 직접 수령</span></a></li>
+                    <li><a href=""><span>하롱베이 서비스 OPEN! (여행 정보, 가이드</span></a></li>
+                    <li><a href=""><span>투어리스트인투어 서비스 점검 안내 </span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <ul class="info">
+                <h3><a href="">이용약관</a> | <a href="">개인정보취급방침</a></h3>
+                <li>투어리스트인투어</li>
+                <li>서울특별시 종로구 혜화동 9길 청문빌딩 5층/대표전화 02-1234-5678/E-mail : titour@touristInTour.com</li>
+                <li>Copyright(c) TouristInTour all right reserved</li>
+            </ul>
+            <div class="image_box">
+                <a href=""><img src="./images/ico_blog_r.png" width=50></a>
+                <a href=""><img src="./images/ico_face.png" width=50 style="padding-bottom:25px"></a>
+                <a href=""><img src="./images/ico_instargram_r.png" width=50></a>
+            </div>
+        </footer>
+        <ul class="button">
+            <li>전화문의</li>
+            <li>카카오톡 상담</li>
+            <li>오시는 길</li>
+        </ul>
+    </body>
+</html>
