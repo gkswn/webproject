@@ -51,10 +51,27 @@ server.get('/', function(req, res)  {
     res.render("index.ejs")
 })
 server.get('/notice_list', function(req, res)  {
-    res.render("notice_list.ejs")
+    connection.query(`SELECT * FROM board`,function(err,rows){
+        if(err){throw err;}
+        console.log(rows)
+        res.render("notice_list.ejs",{'data':rows},function(err3,html){
+            if(err3){throw err3;}
+                res.end(html)
+            })
+        })
 })
-server.get('/notice_view', function(req, res)  {
-    res.render("notice_view.ejs")
+
+server.get('/notice_view/:i', function(req, res)  {
+    var page = req.params.i;
+   connection.query(`SELECT * FROM board`,function(err,rows){
+        if(err){throw err;}
+        res.render("notice_view.ejs",{'data':rows[page]},function(err3,html){
+        if(err3){
+            throw err3;
+            }
+            res.end(html)
+        })
+    })
 })
 server.get('/program', function(req, res)  {
     res.render("program.ejs")
