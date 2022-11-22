@@ -134,11 +134,11 @@ server.get('/logined_index/:writer',function(req,res){
     if(writer === req.session.uname){
         connection.query('DELETE FROM board WHERE title = ?',title,function(err,rows){
             if(err){throw err;}
-            res.redirect("/logined_index")
+            res.send("<script>alert('게시글 삭제 성공');location.href='/logined_index';</script>");
         })
     }
     else{
-        res.redirect("/logined_index")
+        res.send("<script>alert('작성자가 일치하지 않습니다.');location.href='/logined_index';</script>");
     }
 })
 server.get('/logined_index',function(req,res){
@@ -158,7 +158,7 @@ server.post('/register', function(req,res){
     //var params = [req.body.name,req.body.pw,req,body.name,req.body.gender,req.body.number,req.body.email];
     connection.query(sql,params,function(err,rows,fields){
         if(err) console.log(err);
-        console.log("success");
+        res.send("<script>alert('회원가입 성공. 로그인 페이지로 이동합니다.');location.href='/login';</script>");
     })
 })
 
@@ -171,7 +171,7 @@ server.post('/content', function(req,res){
     
     connection.query(sql,params,function(err,rows,fields){
         if(err) console.log(err);
-        res.redirect('/logined_notice_list')
+        res.send("<script>alert('게시글 등록 성공');location.href='/logined_notice_list';</script>");
     })
 })
 
@@ -198,13 +198,13 @@ server.post('/checked',function(req,res){
                         })
                     }
                     else{
-                        res.render('index.ejs')
+                        res.send("<script>alert('password가 일치하지 않습니다.');location.href='/login';</script>");
                     }
                 })
             }
         }
         else{
-            res.render('index.ejs')
+            res.send("<script>alert('ID가 일치하지 않습니다.');location.href='/login';</script>");
         }
     })
 })
@@ -212,7 +212,7 @@ server.get('/logout',function(req,res){
     console.log('로그아웃 성공');
     console.log(req.session)
     req.session.destroy(function(){
-      res.redirect('/')
+        res.send("<script>alert('로그아웃 성공');location.href='/';</script>");
     });
 });
 server.post('/myupdate',function(req,res){
@@ -227,7 +227,7 @@ server.post('/myupdate',function(req,res){
         if(err){
             console.log(err)
         }else{
-            res.redirect('/logined_index')
+            res.send("<script>alert('개인정보 변경이 완료되었습니다.');location.href='/logined_index';</script>");
         }
     })
 })
