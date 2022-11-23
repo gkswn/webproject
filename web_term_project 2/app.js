@@ -53,7 +53,6 @@ server.get('/', function(req, res)  {
 server.get('/notice_list', function(req, res)  {
     connection.query(`SELECT * FROM board`,function(err,rows){
         if(err){throw err;}
-        console.log(rows)
         res.render("notice_list.ejs",{'data':rows},function(err3,html){
             if(err3){throw err3;}
                 res.end(html)
@@ -109,7 +108,6 @@ server.get('/log_mypage',function(req,res){
 server.get('/logined_notice_list',function(req,res){
     connection.query(`SELECT * FROM board`,function(err,rows){
         if(err){throw err;}
-        console.log(rows)
         res.render("logined_notice_list.ejs",{'data':rows},function(err3,html){
             if(err3){throw err3;}
                 res.end(html)
@@ -129,6 +127,39 @@ server.get('/logined_notice_view/:i',function(req,res){
         })
         })
 })
+server.get('/logined_notice_rec/:writer',function(req,res){
+    var [writer,title] = req.params.writer.split(',')
+    if(writer === req.session.uname){
+        connection.query('select * from board where user_id=? and title=?',[writer,title],function(err,rows){
+            if(err){throw err;}
+            req.session.modifytitle = title
+            res.render("modify.ejs",{'data':rows[0]},function(err2,html){
+                if(err2){throw err2;}
+                res.end(html)
+            })
+        })
+    }
+    else{
+        res.send("<script>alert('작성자가 일치하지 않습니다.');location.href='/logined_notice_list';</script>");
+    }
+})
+server.post('/accpp',function(req,res){
+    var title = req.body.title
+    var content = req.body.content
+    connection.query('set sql_safe_updates=0;',function(err,rows){
+        connection.query('UPDATE board SET title=?,content=? WHERE user_id = ? and title = ?' ,[title, content, req.session.uname,req.session.modifytitle],function(err,result,fields){
+        if(err){
+            console.log(err)
+          }else{
+            console.log("수정 완료")
+            res.send("<script>alert('수정 완료');location.href='/logined_notice_list';</script>");
+          }
+     
+        })
+    })
+    
+})
+
 server.get('/logined_index/:writer',function(req,res){
     var [writer,title] = req.params.writer.split(',')
     if(writer === req.session.uname){

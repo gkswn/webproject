@@ -113,14 +113,59 @@
         }
         
         #radio1:checked ~ .navigation-auto .auto-btn1{
-            background: #40d3dc;
+            background: black;
         }
         #radio2:checked ~ .navigation-auto .auto-btn2{
-            background: #40d3dc;
+            background: black;
         }
         #radio3:checked ~ .navigation-auto .auto-btn3{
-            background: #40d3dc;
+            background: black;
         }
+
+        /* dropdown css */
+/*      @import url('https://fonts.googleapis.com/icon?family=Material+Icons'); */
+
+.dropdown{
+        position : relative;
+        display : inline-block;
+        }
+
+        .dropbtn{
+        /* border : 1px solid rgb(37, 37, 37); */
+        background-color: black;
+        font-weight: 400;
+        color : white;
+        padding : 12px;
+        width :100px;
+        text-align: center;
+        cursor : pointer;
+        font-size : 16px;
+        }
+        .dropdown-content{
+        display : none;
+        position : absolute;
+        z-index : 1; /*다른 요소들보다 앞에 배치*/
+        font-weight: 400;
+        background-color: #f9f9f9;
+        min-width : 100px;
+        }
+
+        .dropdown-content a{
+        display : block;
+        text-decoration : none;
+        color : rgb(37, 37, 37);
+        font-size: 12px;
+        padding : 12px 20px;
+        }
+
+        .dropdown-content a:hover{
+        background-color : #ececec
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+
         </style>
     </head>
     <body>
@@ -135,9 +180,27 @@
             </div>
             <div>
                 <ul class="menu">
-                    <li><a href="/program">상품투어</a></li>
-                    <li><a href="/notice_list">고객센터</a></li>
-                    <li><a href="/">마이페이지</a></li>
+                    <li>
+                        <button class = "dropbtn">
+                            <a href="/program">상품투어</a>
+                        </button>
+                    </li>
+                    <div class="dropdown">
+                        <li>
+                            <button class = "dropbtn">고객센터
+                                <div class=" dropdown-content">
+                                    <a href="/notice_list">공지사항</a>
+                                    <a href="/login">문의하기</a>
+                                </div>
+                            </button>
+                        </li>
+                    </div>
+                    <!-- <li><a href="/notice_list">고객센터</a></li> -->
+                    <li>
+                        <button class = "dropbtn">
+                            <a href="/">마이페이지</a>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </nav>

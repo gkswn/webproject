@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항 | 고객센터 | 투어 리스트 인 투어</title>
+    <title>글 작성하기</title>
     <link href='../css/common.css' rel='stylesheet' type="text/css">
 </head>
 <body>
@@ -17,7 +17,7 @@
         <header id="header">
             <div class="header_area box_inner clear">
                 <!-- 로고-->
-                <h1><a href="/">Tourist in tour</a></h1>
+                <h1><a href="/logined_index">Tourist in tour</a></h1>
                 
                 <!-- 모바일 메뉴 그리기 -->
                 <p class="openMOgnb"><a href="#"><b class="hdd">메뉴열기</b><span></span><span></span><span></span></a></p>
@@ -26,7 +26,7 @@
                 <!-- 상단 메뉴 -->
                 <div class="header_cont">
                     <ul class="util clear">
-                        <li><a href="/login">로그인</a></li>
+                        <li><a href="/logout">로그아웃</a></li>
                         <li><a href="/signup">회원가입</a></li>
                     </ul>
                     <nav>
@@ -41,7 +41,7 @@
                                 </div>
                             </li> -->
                             <li>
-                                <a href="/program" class="openAll3">상품투어</a>
+                                <a href="/logined_program" class="openAll3">상품투어</a>
                                 <div class="gnb_depth gnb_depth2_3">
                                     <ul class="submenu_list">
                                         <li><a href="#">프로그램 소개</a></li>
@@ -50,7 +50,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="/notice_list" class="openAll2">고객센터</a>
+                                <a href="/logined_notice_list" class="openAll2">고객센터</a>
                                 <div class="gnb_depth gnb_depth2_2">
                                     <ul class="submenu_list">
                                         <li><a href="#">공지사항</a></li>
@@ -59,7 +59,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="/" class="openAll4">마이페이지</a>
+                                <a href="/mypage" class="openAll4">마이페이지</a>
                                 <div class="gnb_depth gnb_depth2_4">
                                     <ul class="submenu_list">
                                         <li><a href="#">항공</a></li>
@@ -69,7 +69,7 @@
                             </li>
                         </ul>
                     </nav>
-                    <p class="closePop"><a href="#">닫기</a></p>
+                    <p class="closePop"><a href=#">닫기</a></p>
                 </div>
                 <!-- 상단 메뉴 끝-->
             </div>
@@ -77,30 +77,36 @@
         <!-- header 끝-->
         <!-- container -->
         <div id="container">
-            <div class="location_area customer">
+            <div class="location_area member">
                 <div class="box_inner">
                     <h2 class="tit_page">TOURIST <span class="in">in</span> TOUR</h2>
-                    <p class="location">공지사항 <span class="path">/</span> 고객센터</p>
+                    <p class="location">고객센터 <span class="path">/</span> 글 작성하기</p>
                     <ul class="page_menu clear">
-                        <li><a href="#" class="on">공지사항</a></li>
-                        <li><a href="#">문의하기</a></li>
+                        <li><a href="#" class="on">글 수정하기</a></li>
                     </ul>
                 </div>
             </div>
             <!-- 본문 -->
             <div class="bodytext_area box_inner">
-                <ul class="bbsview_list">
-                    <li class="bbs_title"><%= data.title %></li>
-                    <li class="bbs_date">작성자 : <span><%= data.user_id%></span></li>
-                    <li class="bbs_content">
-                        <div class="editor_content">
-                            <%=  data.content %>
-                        </div>
-                    </li>
-                </ul>
-                <p class="btn_line txt_right">
-                    <a href="/notice_list" class="btn_bbs">목록</a>
-                </p>
+                <form action="/accpp" method="post" class="appForm">
+                    <fieldset>
+                        <legend>글 작성양식</legend>
+                        <p class="info_pilsoo pilsoo_item">필수입력</p>
+                        <ul class="app_list">
+                            <li class="clear">
+                                <label for="email_lbl"  class="tit_lbl pilsoo_item">글 제목</label>
+                                <div class="app_content email_area">
+                                    <input type="text" class="w160" name = "title"  title="글 제목" value ="<%= data.title %>"> 
+                                </div>
+                            </li>
+                            <li class="clear">
+                                <label for="content_lbl" class="tit_lbl">문의내용</label>
+                                <div class="app_content"><textarea id="content_lbl" name="content"class="w100p" placeholder="간단한 상담 요청 사항을 남겨주시면 보다 상세한 상담이 가능합니다. 전화 상담 희망시 기재 부탁드립니다."><%= data.content%></textarea></div>
+                            </li>
+                        </ul>
+                        <input type = "submit" class="btn_basecolor" value="수정">
+                    </fieldset>
+                </form>
             </div>
         </div>
 
@@ -135,4 +141,5 @@
     </div>
 <!-- quick list 끝 -->
 </body>
+
 </html>
